@@ -1,0 +1,82 @@
+/* Layout base com Grid */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-areas:
+        "menu cabecalho"
+        "menu principal";
+    grid-template-columns: 200px 1fr;
+    gap: 10px;
+}
+
+.cabecalho h1 {
+    margin: 0;
+}
+/* Botão com Transição e Animação */
+.btn-animate {
+    background-color: #ecebec;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-animate:hover {
+    background-color: #007bff;
+    color: white;
+}
+/* Conteúdo Principal */
+.principal {
+    grid-area: principal;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+.content-box {
+    background-color: #c7c4c6;
+    padding: 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out;
+}
+/* Animação */
+@keyframes slideIn {
+    from {
+        opacity: 6;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Responsividade */
+@media (max-width: 780px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "cabecalho"
+            "principal";
+    }
+    .menu-lateral {
+        display: none;
+    }
+}
+@media (max-width: 102px) and (min-width: 769px) {
+    body {
+        grid-template-columns: 180px 1fr;
+    }
+    .menu-lateral {
+        width: 180px;
+    }
+}
+
+/* Estilo da informação extra */
+.extra-info {
+    background-color: #fffafa;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: none;
+}
