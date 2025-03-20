@@ -2,18 +2,76 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
     display: grid;
+    grid-template-columns: 250px 1fr;
     grid-template-areas:
         "menu cabecalho"
         "menu principal";
-    grid-template-columns: 200px 1fr;
-    gap: 10px;
+    gap: 20px;
+    padding: 20px;
 }
 
-.cabecalho h1 {
-    margin: 0;
+.menu-lateral {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-/* Botão com Transição e Animação */
+
+.menu-lateral h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    margin: 10px 0;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+/* Estilo do conteúdo principal */
+.principal {
+    grid-area: principal;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.content-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Estilo do botão com transição */
 .btn-animate {
     background-color: #ecebec;
     color: #007bff;
@@ -21,29 +79,20 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    max-width: 150px;
+    margin: 10px 0;
 }
+
 .btn-animate:hover {
     background-color: #007bff;
     color: white;
 }
-/* Conteúdo Principal */
-.principal {
-    grid-area: principal;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
-}
-.content-box {
-    background-color: #c7c4c6;
-    padding: 20px;
-    border-radius: 5px;
-    animation: slideIn 0.5s ease-out;
-}
+
 /* Animação */
 @keyframes slideIn {
     from {
-        opacity: 6;
+        opacity: 0;
         transform: translateY(20px);
     }
     to {
@@ -51,32 +100,67 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Estilo da informação extra */
+.extra-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
 /* Responsividade */
-@media (max-width: 780px) {
-    body {
+@media (max-width: 768px) {
+    .container {
         grid-template-columns: 1fr;
         grid-template-areas:
             "cabecalho"
             "principal";
     }
+
     .menu-lateral {
         display: none;
     }
 }
-@media (max-width: 102px) and (min-width: 769px) {
-    body {
-        grid-template-columns: 180px 1fr;
-    }
-    .menu-lateral {
-        width: 180px;
-    }
+/* Estilo do Menu Lateral */
+.menu-lateral {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza os itens na horizontal */
+    height: 100%; /* Para garantir que ocupe toda a altura disponível */
 }
 
-/* Estilo da informação extra */
-.extra-info {
-    background-color: #fffafa;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 5px;
-    display: none;
+.menu-lateral h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo da lista */
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens da lista */
+}
+
+.menu-lateral li {
+    margin: 10px 0;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    padding: 10px;
 }
